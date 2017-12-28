@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 
-class Issue extends React.Component {
+/**
+ * Display Each Issues Data in an li
+ */
+class Issue extends Component {
 	render() {
+		// details comes from issue component markup set up in IssuesTable.js
 		const { details } = this.props;
 		return (
 			<li className="github-issue">

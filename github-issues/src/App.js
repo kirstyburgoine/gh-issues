@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 /**
  * Setup Architecture for the App
  * Issues is where github API is called
+ * TODO: See if better way to load in without needing two outer containers (root and page-container)
  */
 class App extends Component {
 	render() {
