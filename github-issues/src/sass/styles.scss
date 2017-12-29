@@ -1,5 +1,20 @@
-body {
-	margin: 0;
-	padding: 0;
-	font-family: sans-serif;
-}
+/**
+ * All stylesheets to import
+ * SASS compiles to ../css/styles.css
+ * linting, minifying etc then compiles to ../styles.css
+ * File structure is based loosely on Brad Frosts Atomic Design
+ */
+
+// 1. First reset our browser styles
+// -----------------------------------------------------
+@import 'resets/normalize';
+@import 'resets/reset';
+
+// Set some variables, mixins, silent classes for re-use
+// -----------------------------------------------------
+@import 'utilities/variables';
+@import 'utilities/mixins';
+@import 'utilities/silentclasses';
+
+// Lets get styling! :)
+// -----------------------------------------------------
