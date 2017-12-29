@@ -10,6 +10,13 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.1.0"
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^3.1.0",
+    "postcss-loader": "^2.0.9"
+  },
+  "dependencies": {
+    "css-reset-and-normalize-sass": "^0.1.2",
+    "cssnano": "^3.10.0"
   }
 }
