@@ -1,0 +1,29 @@
+/**
+ * All base styles after resets are applied that don't have a
+ * home in atoms/molecules/organisms
+ * -----------------------------------------------------------------------------------------
+ */
+
+html {
+	font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1680 - 300)));
+}
+
+// To break this down in a few lines we have
+// 14px as the minimum font size
+// 16 as the largest, minus the smallest (14)
+// We times that by 100VW minus the smallest screen size in mind for the 14px size, 300px
+// Finally divide that by the largest screen width (1680) defined for 16px minus the smallest screen size again.
+// So if you wanted the font-size to be 16px on a screen at 320px wide, and 22px on a screen 1600px wide the declaration would be:
+//
+// html { font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1600 - 320))); }
+//
+// 16px is minimum font-size
+// 22px is largest - minus smallest ()
+// multiply this by 100vw minus the smallest screen size in mind for 16px
+// Finally divide that by the largest screen width (1600) defined for 22px minus the smallest screen size again
+
+// Original formula taken from Ethan Marcotte's site
+// And illustrated in responsive design weekly email
+
+// Article on viewport based type
+// https://zellwk.com/blog/viewport-based-typography/
