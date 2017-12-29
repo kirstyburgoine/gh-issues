@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Issue from './Issue';
 
 const urlForName = login =>
-	`https://api.github.com/repos/cloudflare/cf-ui/issues`;
+	`https://api.github.com/repos/Automattic/_s/issues?state=open&orderby=number`;
 
 /**
  * Grabs the data from github here and sets up for use in Issue
