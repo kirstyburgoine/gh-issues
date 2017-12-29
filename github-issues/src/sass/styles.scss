@@ -1,5 +1,5 @@
 /**
- * All stylesheets to import
+ * All .scss stylesheets to import
  * SASS compiles to ../css/styles.css
  * linting, minifying etc then compiles to ../styles.css
  * File structure is based loosely on Brad Frosts Atomic Design
@@ -18,3 +18,4 @@
 
 // Lets get styling! :)
 // -----------------------------------------------------
+@import 'base';
