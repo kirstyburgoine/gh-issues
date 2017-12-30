@@ -11,7 +11,12 @@ class StatusIcon extends Component {
 		const svgFill = isOpen ? '#28a745' : '#cb2431';
 
 		return (
-			<svg width="14" height="16" viewBox="0 0 14 16">
+			<svg
+				width="14"
+				height="16"
+				viewBox="0 0 14 16"
+				className="issue-status"
+			>
 				<path d={svgPath} fill={svgFill} />
 			</svg>
 		);

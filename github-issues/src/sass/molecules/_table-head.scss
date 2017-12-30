@@ -1,0 +1,25 @@
+/**
+ * Table head with filters
+ * -----------------------------------------------------------------------------------------
+ */
+
+.table-head {
+	display: flex;
+	padding: $gutter;
+	background-color: $container-background-color-alt;
+	border-bottom: solid 1px $border-color;
+
+	.table-results-count {
+		flex: 0 1 45%;
+	}
+
+	.table-list-filters {
+		flex: 0 1 55%;
+		display: flex;
+		justify-content: flex-end;
+
+		button {
+			margin-left: $gutter;
+		}
+	}
+}

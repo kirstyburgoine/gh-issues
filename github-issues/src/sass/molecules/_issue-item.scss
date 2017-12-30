@@ -19,6 +19,14 @@
 
 	.column-left {
 		flex: 0 1 65%;
+		display: flex;
+	}
+
+	// -------------------------
+	// Items within column-left. could be nested but no need to be that specific.
+	.issue-status {
+		padding-top: $item-gutter;
+		padding-right: $gutter;
 	}
 
 	.column-right {

@@ -24,9 +24,11 @@
 // Atoms - items that cannot breakdown without loosing finctionality
 @import 'atoms/typography';
 @import 'atoms/links';
+@import 'atoms/buttons';
 
 // Molecules - Small collections of Atoms
 @import 'molecules/issue-item';
+@import 'molecules/table-head';
 
 // Organisms - Collections of Molecules
 @import 'organisms/layout';

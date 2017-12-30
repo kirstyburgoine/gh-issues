@@ -440,8 +440,9 @@ table {
  * -----------------------------------------------------------------------------------------
  */
 /**
- * silent classes, placeholders
+ * silent classes, placeholders for utilities and sextra bits and bobs
  * -----------------------------------------------------------------------------------------
+ * Note: buttons, typography silent classes are in their specific files i.e. _buttons.scss
  */
 /**
  * All base styles after resets are applied that don't have a
@@ -490,6 +491,26 @@ a {
     color: #24292e; }
 
 /**
+ * Default styles for all buttons
+ * -----------------------------------------------------------------------------------------
+ *
+ */
+.btn-link {
+  border: 0;
+  background: transparent; }
+
+.select-menu-button:not([disabled]):after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: -2px;
+  content: '';
+  border: 4px solid;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent; }
+
+/**
  * Each Row listing an issue
  * -----------------------------------------------------------------------------------------
  */
@@ -503,11 +524,33 @@ a {
   .github-issue:hover {
     background-color: #f6f8fa; }
   .github-issue .column-left {
-    flex: 0 1 65%; }
+    flex: 0 1 65%;
+    display: flex; }
+  .github-issue .issue-status {
+    padding-top: 0.625em;
+    padding-right: 1.25em; }
   .github-issue .column-right {
     flex: 0 1 35%;
     display: flex;
     justify-content: flex-end; }
+
+/**
+ * Table head with filters
+ * -----------------------------------------------------------------------------------------
+ */
+.table-head {
+  display: flex;
+  padding: 1.25em;
+  background-color: #f6f8fa;
+  border-bottom: solid 1px #e1e4e8; }
+  .table-head .table-results-count {
+    flex: 0 1 45%; }
+  .table-head .table-list-filters {
+    flex: 0 1 55%;
+    display: flex;
+    justify-content: flex-end; }
+    .table-head .table-list-filters button {
+      margin-left: 1.25em; }
 
 /**
  * Overall page layout settings
