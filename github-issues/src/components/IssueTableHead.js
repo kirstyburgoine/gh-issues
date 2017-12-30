@@ -10,12 +10,32 @@ class IssueTableHead extends Component {
 	render() {
 		// details comes from issue component markup set up in IssuesTable.js
 		const { details } = this.props;
-		// if (details.state === 'open') {
-		// 	const svg = <img src={openIcon} alt="Open Issue" />;
-		// }
-		// const svg = <img src={closedIcon} alt="Closed Issue" />;
 
-		return <div className="table-head">Hello</div>;
+		return (
+			<div class="table-head">
+				<div className="table-results-count" />
+				<div className="table-list-filters">
+					<button className="btn-link select-menu-button">
+						Author
+					</button>
+					<button className="btn-link select-menu-button">
+						Labels
+					</button>
+					<button className="btn-link select-menu-button" disabled>
+						Projects
+					</button>
+					<button className="btn-link select-menu-button" disabled>
+						Milestones
+					</button>
+					<button className="btn-link select-menu-button" disabled>
+						Assignee
+					</button>
+					<button className="btn-link select-menu-button" disabled>
+						Sort
+					</button>
+				</div>
+			</div>
+		);
 	}
 }
 
