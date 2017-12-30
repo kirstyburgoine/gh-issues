@@ -18,7 +18,14 @@ class Issue extends Component {
 		return (
 			<li className="github-issue">
 				<div className="column-left">
-					<a className="issue-title">{details.title}</a>
+					<a
+						href={details.html_url}
+						className="issue-title"
+						title={details.title}
+					>
+						{details.title}
+					</a>
+					<br />
 					<span className="opened-by">
 						#{details.number} opened{' '}
 						<span className="relative-time date-time">
@@ -28,7 +35,12 @@ class Issue extends Component {
 					</span>
 				</div>
 				<div className="column-right">
-					<img src={details.user.avatar_url} alt="" />
+					<img
+						src={details.user.avatar_url}
+						alt=""
+						height="20px"
+						width="20px"
+					/>
 
 					<img src={commentIcon} alt={details.comments} />
 					<span className="text-small">{details.comments}</span>
