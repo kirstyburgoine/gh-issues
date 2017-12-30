@@ -15,19 +15,22 @@ class Issue extends Component {
 			<li className="github-issue">
 				<div className="column-left">
 					<StatusIcon status={details.state} />
-					<a
-						href={details.html_url}
-						className="issue-title"
-						title={details.title}
-					>
-						{details.title}
-					</a>
-					<br />
-					<span className="opened-by">
-						#{details.number} opened{' '}
-						<TimeAgo date={details.created_at} />
-						by {details.user.login}
-					</span>
+
+					<div className="issue-details">
+						<a
+							href={details.html_url}
+							className="issue-title"
+							title={details.title}
+						>
+							{details.title}
+						</a>
+						<br />
+						<span className="opened-by">
+							#{details.number} opened{' '}
+							<TimeAgo date={details.created_at} />
+							by {details.user.login}
+						</span>
+					</div>
 				</div>
 				<div className="column-right">
 					<img
@@ -37,8 +40,10 @@ class Issue extends Component {
 						width="20px"
 					/>
 
-					<CommentIcon />
-					<span className="text-small">{details.comments}</span>
+					<span className="comments">
+						<CommentIcon />
+						<span className="text-small">{details.comments}</span>
+					</span>
 				</div>
 			</li>
 		);
