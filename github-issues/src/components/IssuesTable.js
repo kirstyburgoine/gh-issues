@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import IssueTableHead from './IssueTableHead';
 import Issue from './Issue';
 
 const urlForName = login =>
@@ -34,7 +35,7 @@ class IssuesTable extends Component {
 			.then(d => d.json()) // format using json
 			.then(
 				d => {
-					// set th state uding the data from github api
+					// set the state using the data from github api
 					this.setState({
 						githubData: d
 					});
@@ -50,7 +51,7 @@ class IssuesTable extends Component {
 	}
 
 	render() {
-		// renders the cintent to the page
+		// renders the content to the page
 		// start with showing some messages so the user can see whats happening
 		if (this.state.requestFailed) return <p>Failed!</p>;
 		if (!this.state.githubData) return <p>Loading...</p>;
@@ -59,6 +60,7 @@ class IssuesTable extends Component {
 			// return the data  from the API Request and print on screen
 			// Uses standard javascript to loop through data array and map keys to each Issue component
 			<div className="issues-table">
+				<IssueTableHead />
 				<ul>
 					{Object.keys(this.state.githubData).map(key => (
 						<Issue key={key} details={this.state.githubData[key]} />
