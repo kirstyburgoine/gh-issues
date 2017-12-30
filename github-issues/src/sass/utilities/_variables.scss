@@ -2,3 +2,73 @@
  * All theme variables
  * -----------------------------------------------------------------------------------------
  */
+
+/*
+ * Table of Contents
+ * -----------------
+ * a. Colour Settings
+ * b. Typography
+ * c. Gutters / Containers / Margin / Padding settings;
+ */
+
+// -------------------------------------------------
+// a. Colour Settings
+// -------------------------------------------------
+
+$white: #fff;
+$black: #000;
+$grey-light: #f6f8fa;
+$grey-medium: #e1e4e8;
+$grey-dark: #24292e;
+
+$brand-base: #0366d6;
+
+$body-background-color: $white;
+$container-background-color-alt: $grey-light;
+
+$border-color: $grey-medium;
+
+$body-font-color: $grey-dark;
+
+$link-color-default: $body-font-color;
+$link-color-hover: $brand-base;
+$link-color-visited: $body-font-color;
+
+// -------------------------------------------------
+// b. Typography
+// -------------------------------------------------
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+	Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+	'Segoe UI Symbol'; // copied from Github
+$font-family-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
+$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-ultra: 900;
+
+// Global styles for body font
+$body-font-family: $font-family-sans-serif;
+$body-font-weight: $font-weight-normal;
+$body-font-style: normal;
+
+// -------------------------------------------------
+// c. Gutters / Containers / Margin / Padding
+// -------------------------------------------------
+
+// Base gutter sizing. all paddings and margins work from this
+$gutter: 1.25em; // When body font size is 100% this would be: 20px / 16 to get em value
+$item-gutter: $gutter / 2; // used on all grid layouts so that total spacing between items is correct
+
+$container-width-mobile: 100%; // used when container width is a fixed value on desktop so that the mobile can scale
+$container-width: 980px;
+
+$container-breakpoint: calc(
+	$container-width + $gutter
+); // Control page behaviour at the point max-width kicks in + the amount of outer padding needed so that padding is not stripped too soon
+// and instead of it being at an arbitrary, device specific break point

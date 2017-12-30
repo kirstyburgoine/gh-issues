@@ -1,0 +1,25 @@
+/**
+ * Overall page layout settings
+ * -----------------------------------------------------------------------------------------
+ */
+
+.page-container {
+	width: $container-width-mobile; // defaults to 100%;
+	max-width: $container-width;
+	margin: $gutter auto;
+	box-sizing: border-box;
+
+	padding-left: $item-gutter;
+	padding-right: $item-gutter;
+
+	// $container breakpoint matches $container width + $gutter so that when max-width comes into affect padding is removed
+	@include min-screen( $container-breakpoint ) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.issues-table {
+	border: solid 1px $border-color;
+	border-radius: 4px;
+}

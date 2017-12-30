@@ -58,11 +58,13 @@ class IssuesTable extends Component {
 		return (
 			// return the data  from the API Request and print on screen
 			// Uses standard javascript to loop through data array and map keys to each Issue component
-			<ul>
-				{Object.keys(this.state.githubData).map(key => (
-					<Issue key={key} details={this.state.githubData[key]} />
-				))}
-			</ul>
+			<div className="issues-table">
+				<ul>
+					{Object.keys(this.state.githubData).map(key => (
+						<Issue key={key} details={this.state.githubData[key]} />
+					))}
+				</ul>
+			</div>
 		);
 	}
 }

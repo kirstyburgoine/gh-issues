@@ -2,3 +2,81 @@
  * All typography styles
  * -----------------------------------------------------------------------------------------
  */
+
+//-----------------------------------------------------------
+// Type scales - controls relation between font-size, line-height
+// To preserve vertical flow
+
+$type-scale: (
+	-2: 0.75rem,
+	-1: 0.875rem,
+	0: 1rem,
+	1: 1.25rem,
+	2: 1.5rem,
+	3: 1.875rem,
+	4: 2.25rem,
+	5: 2.5rem,
+	6: 3.125rem,
+	7: 3.75rem,
+	8: 6.25rem
+);
+// Easy REM calculator based on 16px base
+// : https://offroadcode.com/rem-calculator/
+
+@function type-scale($level) {
+	@return map-get($type-scale, $level);
+}
+
+// Again, we can make a helper function:
+@function line-heights($level) {
+	@return map-get($line-heights, $level);
+}
+
+$base-font-size: 1rem;
+$base-line-height: 1.25 * $base-font-size;
+
+$line-heights: (
+	-2: $base-line-height,
+	-1: $base-line-height * 1.25,
+	0: $base-line-height * 1.25,
+	1: $base-line-height * 1.25,
+	2: $base-line-height * 1.5,
+	3: $base-line-height * 1.5,
+	4: $base-line-height * 2.5,
+	5: $base-line-height * 2.75,
+	6: $base-line-height * 3.325,
+	7: $base-line-height * 4,
+	8: $base-line-height * 6.5
+);
+
+@mixin type-setting($level: 0) {
+	font-size: type-scale($level);
+	line-height: line-heights($level);
+}
+
+//-----------------------------------------------------------
+// Set silent classes as as well as defaults in case markup
+// outputs spans or something instead of the semantic header
+h1,
+%h1,
+h2,
+%h2,
+h3,
+%h3,
+h4,
+%h4,
+h5,
+%h5,
+h6,
+%h6 {
+	font-weight: $font-weight-semibold;
+}
+
+h3,
+%h3 {
+	@include type-setting(1);
+}
+
+.issue-title {
+	@extend %h3;
+}

@@ -5,13 +5,13 @@
  */
 
 html {
-	font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1680 - 300)));
+	font-size: calc(12px + (16 - 12) * ((100vw - 300px) / (1680 - 300)));
 }
 
 // To break this down in a few lines we have
-// 14px as the minimum font size
-// 16 as the largest, minus the smallest (14)
-// We times that by 100VW minus the smallest screen size in mind for the 14px size, 300px
+// 12px as the minimum font size
+// 16 as the largest, minus the smallest (12)
+// We times that by 100VW minus the smallest screen size in mind for the 12px size, 300px
 // Finally divide that by the largest screen width (1680) defined for 16px minus the smallest screen size again.
 // So if you wanted the font-size to be 16px on a screen at 320px wide, and 22px on a screen 1600px wide the declaration would be:
 //
@@ -27,3 +27,12 @@ html {
 
 // Article on viewport based type
 // https://zellwk.com/blog/viewport-based-typography/
+
+body {
+	color: $body-font-color;
+	font-family: $body-font-family;
+	font-weight: $body-font-weight;
+	font-style: $body-font-style;
+	background-color: $body-background-color;
+	font-size: 90%; // Set this to 90% here so that responsive fonts above work but our default base is 14px instead of 16px
+}

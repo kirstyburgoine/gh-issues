@@ -15,7 +15,18 @@
 @import 'utilities/variables';
 @import 'utilities/mixins';
 @import 'utilities/silentclasses';
+@import 'utilities/media-queries';
 
 // Lets get styling! :)
 // -----------------------------------------------------
 @import 'base';
+
+// Atoms - items that cannot breakdown without loosing finctionality
+@import 'atoms/typography';
+@import 'atoms/links';
+
+// Molecules - Small collections of Atoms
+@import 'molecules/issue-item';
+
+// Organisms - Collections of Molecules
+@import 'organisms/layout';

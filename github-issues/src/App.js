@@ -12,9 +12,9 @@ class App extends Component {
 	render() {
 		return (
 			<div className="page-container">
-				<Header className="table-list-header" />
+				<Header className="page-header" />
 
-				<main className="issues-table" role="main">
+				<main className="issues-table-container" role="main">
 					<IssuesTable />
 				</main>
 

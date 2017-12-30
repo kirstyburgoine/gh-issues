@@ -1,0 +1,29 @@
+/**
+ * Each Row listing an issue
+ * -----------------------------------------------------------------------------------------
+ */
+
+.github-issue {
+	display: flex;
+	flex-direction: row;
+	padding: $item-gutter;
+	border-bottom: solid 1px $border-color;
+
+	&:last-child {
+		border: none;
+	}
+
+	&:hover {
+		background-color: $container-background-color-alt;
+	}
+
+	.column-left {
+		flex: 0 1 65%;
+	}
+
+	.column-right {
+		flex: 0 1 35%;
+		display: flex;
+		justify-content: flex-end;
+	}
+}
