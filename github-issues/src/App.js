@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
+import IssueTableHead from './components/IssueTableHead';
 import IssuesTable from './components/IssuesTable';
 import Footer from './components/Footer';
 
@@ -15,6 +16,7 @@ class App extends Component {
 				<Header className="page-header" />
 
 				<main className="issues-table-container" role="main">
+					<IssueTableHead />
 					<IssuesTable />
 				</main>
 
