@@ -17,9 +17,10 @@
 @import 'utilities/silentclasses';
 @import 'utilities/media-queries';
 
+@import 'base';
+
 // Lets get styling! :)
 // -----------------------------------------------------
-@import 'base';
 
 // Atoms - items that cannot breakdown without loosing finctionality
 @import 'atoms/typography';

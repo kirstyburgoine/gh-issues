@@ -36,3 +36,13 @@ body {
 	background-color: $body-background-color;
 	font-size: 90%; // Set this to 90% here so that responsive fonts above work but our default base is 14px instead of 16px
 }
+
+// Some utility classes to control things on screen
+// !important ised here as no matter what other styles are being applied, if these are used they should override.
+.displayblock {
+	display: block !important;
+}
+
+.displaynone {
+	display: none !important;
+}

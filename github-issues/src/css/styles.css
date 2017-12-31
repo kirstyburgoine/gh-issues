@@ -460,6 +460,12 @@ body {
   background-color: #fff;
   font-size: 90%; }
 
+.displayblock {
+  display: block !important; }
+
+.displaynone {
+  display: none !important; }
+
 /**
  * All typography styles
  * -----------------------------------------------------------------------------------------
@@ -495,6 +501,9 @@ a {
  * -----------------------------------------------------------------------------------------
  *
  */
+button {
+  padding: 1.25em; }
+
 .btn-link {
   border: 0;
   background: transparent; }
@@ -504,6 +513,7 @@ a {
   width: 0;
   height: 0;
   vertical-align: -2px;
+  margin-left: 5px;
   content: '';
   border: 4px solid;
   border-right-color: transparent;
@@ -546,11 +556,22 @@ a {
   .table-head .table-results-count {
     flex: 0 1 45%; }
   .table-head .table-list-filters {
-    flex: 0 1 55%;
-    display: flex;
-    justify-content: flex-end; }
-    .table-head .table-list-filters button {
-      margin-left: 1.25em; }
+    flex: 0 1 55%; }
+    .table-head .table-list-filters .list-filters {
+      display: flex;
+      justify-content: flex-end; }
+      .table-head .table-list-filters .list-filters fieldset {
+        position: relative; }
+      .table-head .table-list-filters .list-filters ul {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        max-height: 50vh;
+        overflow: auto; }
+        .table-head .table-list-filters .list-filters ul li {
+          display: block;
+          padding: 1.25em;
+          border: solid 1px #e1e4e8; }
 
 /**
  * Overall page layout settings
