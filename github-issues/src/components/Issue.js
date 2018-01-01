@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TimeAgo from 'react-timeago';
 import StatusIcon from './StatusIcon';
+import Labels from './Labels';
 import CommentIcon from './CommentIcon';
 
 /**
@@ -11,8 +12,14 @@ class Issue extends Component {
 		// details comes from issue component markup set up in IssuesTable.js
 		const { details } = this.props;
 
+		var progressLabels = [details.labels];
+		//console.log(progressLabels);
+
 		return (
-			<li className="github-issue">
+			<li
+				className="github-issue"
+				style={{ backgroundColor: '#' + details.labels.color }}
+			>
 				<div className="column-left">
 					<StatusIcon status={details.state} />
 
@@ -24,11 +31,15 @@ class Issue extends Component {
 						>
 							{details.title}
 						</a>
+
+						{Object.keys(progressLabels).map(key => (
+							<Labels key={key} details={progressLabels[key]} />
+						))}
 						<br />
 						<span className="opened-by">
 							#{details.number} opened{' '}
-							<TimeAgo date={details.created_at} />
-							by {details.user.login}
+							<TimeAgo date={details.created_at} /> by{' '}
+							{details.user.login}
 						</span>
 					</div>
 				</div>
