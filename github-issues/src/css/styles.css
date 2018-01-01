@@ -436,15 +436,6 @@ table {
  * c. Gutters / Containers / Margin / Padding settings;
  */
 /**
- * Mixins
- * -----------------------------------------------------------------------------------------
- */
-/**
- * silent classes, placeholders for utilities and sextra bits and bobs
- * -----------------------------------------------------------------------------------------
- * Note: buttons, typography silent classes are in their specific files i.e. _buttons.scss
- */
-/**
  * All base styles after resets are applied that don't have a
  * home in atoms/molecules/organisms
  * -----------------------------------------------------------------------------------------
