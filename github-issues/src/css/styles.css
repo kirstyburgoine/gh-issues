@@ -566,6 +566,7 @@ button {
       .table-head .table-list-filters .list-filters fieldset {
         position: relative; }
       .table-head .table-list-filters .list-filters ul {
+        display: none;
         position: absolute;
         background-color: #fff;
         max-height: 50vh;

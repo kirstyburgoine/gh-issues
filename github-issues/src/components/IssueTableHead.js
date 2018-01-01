@@ -7,23 +7,37 @@ import FilterMilestones from './FilterMilestones';
 import FilterAssignee from './FilterAssignee';
 import FilterSort from './FilterSort';
 
-// Get the main api along with any query passed
-const urlForApi = query => `https://api.github.com/repos/Automattic/_s/issues`;
-
 /**
- * Grabs the data from github here and sets up for use in each dropdwon
- */
-
-/**
- * Form that filters the results
+ * Form in the header that filters the results
  */
 class IssueTableHead extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			authordisplay: false
+		};
+		this.showDropDown = this.showDropDown.bind(this); // binds this in my function to the class so that it can be used in callback
+	}
+
+	showDropDown(event) {
+		event.preventDefault();
+		// console.log('this worked');
+
+		this.setState(prevState => ({
+			authordisplay: !prevState.authordisplay,
+			labelsdisplay: !prevState.labelsdisplay
+		}));
+	}
 
 	render() {
-
+		// set the state of display so we can control show / hide menus
+		// TODO: Change this so seperate state is not declared for each show hide / menu. toggels between them all instead
+		// to close any that are open before opening another
+		const authordisplay = this.state.authordisplay;
+		const labeldisplay = this.state.labelsdisplay;
+		// This is our data from the api called in App.js
+		// TODO: Probably don't want to pass all of this through to the filters?
 		const { githubData } = this.props;
-		var user = [githubData.user];
-		var labels = [githubData.labels];
 
 		return (
 			<div className="table-head">
@@ -31,8 +45,54 @@ class IssueTableHead extends Component {
 
 				<div className="table-list-filters">
 					<form className="list-filters">
-						<FilterAuthor github={user} />
-						<FilterLabels github={labels} />
+						<fieldset>
+							<button
+								className="btn-link select-menu-button"
+								onClick={this.showDropDown}
+							>
+								Author
+							</button>
+
+							<ul
+								className={
+									authordisplay
+										? 'displayblock'
+										: 'displaynone;'
+								}
+							>
+								{Object.keys(githubData).map(key => (
+									<FilterAuthor
+										key={key}
+										users={githubData[key]}
+									/>
+								))}
+							</ul>
+						</fieldset>
+
+						<fieldset>
+							<button
+								className="btn-link select-menu-button"
+								onClick={this.showDropDown}
+							>
+								Labels
+							</button>
+
+							<ul
+								className={
+									labeldisplay
+										? 'displayblock'
+										: 'displaynone;'
+								}
+							>
+								{Object.keys(githubData).map(key => (
+									<FilterLabels
+										key={key}
+										labels={githubData[key]}
+									/>
+								))}
+							</ul>
+						</fieldset>
+
 						<FilterProjects />
 						<FilterMilestones />
 						<FilterAssignee />
