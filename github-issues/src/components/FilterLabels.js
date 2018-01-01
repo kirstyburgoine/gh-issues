@@ -17,14 +17,11 @@ class Labels extends Component {
 		// console.log('this worked');
 
 		this.setState(prevState => ({
-			labelsdisplay: !prevState.display
+			labelsdisplay: !prevState.labelsdisplay
 		}));
 	}
 
 	render() {
-		// details comes from issue component markup set up in IssuesTable.js
-		const { labels } = this.props;
-
 		// set the state of display so we can control show / hide
 		const display = this.state.labelsdisplay;
 

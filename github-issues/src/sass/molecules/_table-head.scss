@@ -31,7 +31,7 @@
 				// by default hide the UL until its clicked and then its behaviour is controlled by classes being added / removed.
 				// Important to note that for accessibility, display should not be used to show / hide menus as its stops keyboard tabbing
 				// through hidden menus. This is purely due to time constraints.
-				// display: none;
+				display: none;
 				position: absolute;
 				background-color: $body-background-color;
 				max-height: 50vh;

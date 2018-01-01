@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import IssueTableHead from './IssueTableHead';
 import Issue from './Issue';
 
-const urlForName = login =>
-	`https://api.github.com/repos/Automattic/_s/issues?state=open&orderby=number`;
+// Get the main api along with any query passed
+// TODO: This feels like it should be in App.js ?
+const urlForApi = query =>
+	`https://api.github.com/repos/Automattic/_s/issues?${query}`;
 
 /**
  * Grabs the data from github here and sets up for use in Issue
@@ -21,7 +22,8 @@ class IssuesTable extends Component {
 
 		// Fetch the API data using native Fetch method
 		// TODO: Double check this is supported across browser
-		fetch(urlForName(this.props.login))
+		// this.props.query comes from drop down filters
+		fetch(urlForApi(this.props.query))
 			.then(response => {
 				// Check the resposnse
 				if (!response.ok) {
@@ -51,16 +53,13 @@ class IssuesTable extends Component {
 	}
 
 	render() {
-		// renders the content to the page
 		// start with showing some messages so the user can see whats happening
 		if (this.state.requestFailed) return <p>Failed!</p>;
 		if (!this.state.githubData) return <p>Loading...</p>;
 
 		return (
-			// return the data  from the API Request and print on screen
-			// Uses standard javascript to loop through data array and map keys to each Issue component
+			// return the issues table and pass data to correct components
 			<div className="issues-table">
-				<IssueTableHead />
 				<ul>
 					{Object.keys(this.state.githubData).map(key => (
 						<Issue key={key} details={this.state.githubData[key]} />
