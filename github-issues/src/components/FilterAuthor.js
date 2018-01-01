@@ -6,13 +6,14 @@ import React, { Component } from 'react';
  * to close any that are open before opening another
  */
 class Author extends Component {
-
 	render() {
 		// details comes from issueTableHead component markup set up in IssuesTableHEad.js
 		const { users } = this.props;
 
 		return (
-			<li><a href="#">{users.user.login}</a></li>
+			<li>
+				<a href="/">{users.user.login}</a>
+			</li>
 		);
 	}
 }

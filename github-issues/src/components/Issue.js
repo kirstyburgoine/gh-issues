@@ -32,9 +32,14 @@ class Issue extends Component {
 							{details.title}
 						</a>
 
-						{Object.keys(progressLabels).map(key => (
-							<Labels key={key} details={progressLabels[key]} />
-						))}
+						<ul>
+							{Object.keys(progressLabels).map(key => (
+								<Labels
+									key={key}
+									labels={progressLabels[key]}
+								/>
+							))}
+						</ul>
 						<br />
 						<span className="opened-by">
 							#{details.number} opened{' '}

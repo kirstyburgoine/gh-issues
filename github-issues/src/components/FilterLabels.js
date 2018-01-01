@@ -10,7 +10,7 @@ class Labels extends Component {
 
 		return (
 			<li>
-				<a href="#">{labels.labels.name}</a>
+				<a href="/">{labels.labels.name}</a>
 			</li>
 		);
 	}

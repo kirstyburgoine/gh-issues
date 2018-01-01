@@ -15,7 +15,6 @@ import Footer from './components/Footer';
 const urlForApi = query =>
 	`https://api.github.com/repos/Automattic/_s/issues?${query}`;
 
-
 class App extends Component {
 	constructor() {
 		super();
@@ -27,8 +26,8 @@ class App extends Component {
 	}
 
 	/**
- 	 * Grabs the data from github here and sets up for use in Issue
- 	 */
+	 * Grabs the data from github here and sets up for use in Issue
+	 */
 
 	componentDidMount() {
 		// Lifecycle method: https://reactjs.org/docs/react-component.html
