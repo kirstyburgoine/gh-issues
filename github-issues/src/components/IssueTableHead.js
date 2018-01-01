@@ -7,13 +7,23 @@ import FilterMilestones from './FilterMilestones';
 import FilterAssignee from './FilterAssignee';
 import FilterSort from './FilterSort';
 
+// Get the main api along with any query passed
+const urlForApi = query => `https://api.github.com/repos/Automattic/_s/issues`;
+
+/**
+ * Grabs the data from github here and sets up for use in each dropdwon
+ */
+
 /**
  * Form that filters the results
  */
 class IssueTableHead extends Component {
+
 	render() {
-		// details comes from IssueTableHead component markup set up in IssuesTable.js
-		const { details } = this.props;
+
+		const { githubData } = this.props;
+		var user = [githubData.user];
+		var labels = [githubData.labels];
 
 		return (
 			<div className="table-head">
@@ -21,9 +31,8 @@ class IssueTableHead extends Component {
 
 				<div className="table-list-filters">
 					<form className="list-filters">
-						<FilterAuthor />
-
-						<FilterLabels />
+						<FilterAuthor github={user} />
+						<FilterLabels github={labels} />
 						<FilterProjects />
 						<FilterMilestones />
 						<FilterAssignee />
