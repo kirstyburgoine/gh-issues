@@ -54,6 +54,7 @@ class Issue extends Component {
 						alt={details.user.login}
 						height="20px"
 						width="20px"
+						className="avatar"
 					/>
 
 					<span className="comments">

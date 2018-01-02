@@ -475,6 +475,11 @@ h3,
   font-size: 1.25rem;
   line-height: 1.5625rem; }
 
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.5625rem;
+  font-weight: 600; }
+
 /**
  * All link styles
  * -----------------------------------------------------------------------------------------
@@ -535,7 +540,15 @@ button {
   .github-issue .column-right {
     flex: 0 1 35%;
     display: flex;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    align-items: center; }
+    .github-issue .column-right .avatar {
+      padding-right: 2.5em; }
+    .github-issue .column-right .octicon-comment,
+    .github-issue .column-right .text-small {
+      padding-right: 0.625em; }
+    .github-issue .column-right .octicon-comment {
+      vertical-align: middle; }
 
 /**
  * Table head with filters

@@ -80,3 +80,9 @@ h3,
 .issue-title {
 	@extend %h3;
 }
+
+.text-small {
+	// comment count on each row
+	@include type-setting(-1);
+	font-weight: $font-weight-semibold;
+}

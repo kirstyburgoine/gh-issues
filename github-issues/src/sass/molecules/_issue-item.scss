@@ -33,5 +33,19 @@
 		flex: 0 1 35%;
 		display: flex;
 		justify-content: flex-end;
+		align-items: center;
+
+		// TODO: Change thes to proper columns to better control alignment with filters in table head
+		.avatar {
+			padding-right: $gutter * 2;
+		}
+		.octicon-comment,
+		.text-small {
+			padding-right: $item-gutter;
+		}
+
+		.octicon-comment {
+			vertical-align: middle;
+		}
 	}
 }
