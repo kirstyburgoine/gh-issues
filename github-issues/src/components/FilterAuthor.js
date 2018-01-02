@@ -7,11 +7,17 @@ import React, { Component } from 'react';
  */
 class Author extends Component {
 	render() {
-		// details comes from issueTableHead component markup set up in IssuesTableHEad.js
+		// users comes from issueTableHead component markup set up in IssuesTableHEad.js
 		const { users } = this.props;
 
 		return (
-			<li>
+			<li className="filter-author">
+				<img
+					src={users.user.avatar_url}
+					alt={users.user.login}
+					height="20px"
+					width="20px"
+				/>
 				<a href="/">{users.user.login}</a>
 			</li>
 		);

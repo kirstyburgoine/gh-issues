@@ -16,16 +16,28 @@ class IssueTableHead extends Component {
 		this.state = {
 			authordisplay: false
 		};
-		this.showDropDown = this.showDropDown.bind(this); // binds this in my function to the class so that it can be used in callback
+		this.authorDropDown = this.authorDropDown.bind(this); // binds this in my function to the class so that it can be used in callback
+		this.labelsDropDown = this.labelsDropDown.bind(this);
 	}
 
-	showDropDown(event) {
+	// TODO: STill not happy with this way of showing dropdowns...
+	authorDropDown(event) {
 		event.preventDefault();
 		// console.log('this worked');
 
 		this.setState(prevState => ({
 			authordisplay: !prevState.authordisplay,
-			labelsdisplay: !prevState.labelsdisplay
+			labelsdisplay: false
+		}));
+	}
+
+	labelsDropDown(event) {
+		event.preventDefault();
+		// console.log('this worked');
+
+		this.setState(prevState => ({
+			labelsdisplay: !prevState.labelsdisplay,
+			authordisplay: false
 		}));
 	}
 
@@ -36,7 +48,7 @@ class IssueTableHead extends Component {
 		const authordisplay = this.state.authordisplay;
 		const labeldisplay = this.state.labelsdisplay;
 		// This is our data from the api called in App.js
-		// TODO: Probably don't want to pass all of this through to the filters?
+		// TODO: Probably don't want to pass all of this data through to the filters?
 		const { githubData } = this.props;
 
 		return (
@@ -48,7 +60,7 @@ class IssueTableHead extends Component {
 						<fieldset>
 							<button
 								className="btn-link select-menu-button"
-								onClick={this.showDropDown}
+								onClick={this.authorDropDown}
 							>
 								Author
 							</button>
@@ -72,7 +84,7 @@ class IssueTableHead extends Component {
 						<fieldset>
 							<button
 								className="btn-link select-menu-button"
-								onClick={this.showDropDown}
+								onClick={this.labelsDropDown}
 							>
 								Labels
 							</button>
