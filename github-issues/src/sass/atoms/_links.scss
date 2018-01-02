@@ -14,5 +14,9 @@ a {
 
 	&:visited {
 		color: $link-color-visited;
+
+		&:hover {
+			color: $link-color-hover;
+		}
 	}
 }

@@ -16,6 +16,7 @@
 		padding: $gutter;
 	}
 
+	// This applies to all the dropdowns
 	.table-list-filters {
 		flex: 0 1 55%;
 
@@ -35,16 +36,27 @@
 				position: absolute;
 				background-color: $body-background-color;
 				max-height: 50vh;
+				border: solid 1px $border-color;
 				overflow: auto;
 
 				li {
 					width: 300px;
-					display: block;
 					border: solid 1px $border-color;
+					display: flex;
+					align-items: center;
+					padding: $gutter;
+
+					&:last-child {
+						border: none;
+					}
+
+					&:hover {
+						background-color: $container-background-color-alt;
+					}
 
 					a {
-						padding: $gutter;
 						display: block;
+						padding-left: $gutter;
 					}
 				}
 			}
