@@ -81,6 +81,10 @@ h3,
 	@extend %h3;
 }
 
+.opened-by {
+	@include type-setting(-1);
+}
+
 .text-small {
 	// comment count on each row
 	@include type-setting(-1);

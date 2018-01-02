@@ -475,6 +475,10 @@ h3,
   font-size: 1.25rem;
   line-height: 1.5625rem; }
 
+.opened-by {
+  font-size: 0.875rem;
+  line-height: 1.5625rem; }
+
 .text-small {
   font-size: 0.875rem;
   line-height: 1.5625rem;
@@ -534,6 +538,17 @@ button {
   .github-issue .column-left {
     flex: 0 1 65%;
     display: flex; }
+    .github-issue .column-left .issue-details {
+      width: 100%; }
+      .github-issue .column-left .issue-details .labels {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: inline; }
+        .github-issue .column-left .issue-details .labels > li {
+          padding: 0.3125em;
+          margin: 0 0.3125em;
+          display: inline; }
   .github-issue .issue-status {
     padding-top: 0.625em;
     padding-right: 1.25em; }

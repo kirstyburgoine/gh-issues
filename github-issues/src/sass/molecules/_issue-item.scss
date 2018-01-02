@@ -20,6 +20,28 @@
 	.column-left {
 		flex: 0 1 65%;
 		display: flex;
+
+		.issue-details {
+			width: 100%;
+
+			// .issue-title {
+			// 	// TODO: Check all of this can't be more easily changed with line heights
+			// 	padding-bottom: $item-gutter / 2;
+			// }
+
+			.labels {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				display: inline;
+
+				> li {
+					padding: $item-gutter / 2;
+					margin: 0 $item-gutter / 2;
+					display: inline;
+				}
+			}
+		}
 	}
 
 	// -------------------------

@@ -9,14 +9,16 @@ class Labels extends Component {
 		// console.log(details);
 
 		const label = labels.map((item, i) => {
-			return <span>test: {item.name}</span>;
+			// const liStyle = 'backgroundColor: #' + item.color;
+
+			return (
+				<li style={{ backgroundColor: '#' + item.color }}>
+					{item.name}
+				</li>
+			);
 		});
 
-		return (
-			<li>
-				{labels.name} {label}
-			</li>
-		);
+		return <ul className="labels">{label}</ul>;
 	}
 }
 
