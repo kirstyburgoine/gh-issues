@@ -6,29 +6,35 @@ import Footer from './components/Footer';
 
 /**
  * Setup Architecture for the App
- * IssuesTable is where github API is called
  * TODO: See if better way to load in without needing two outer containers (root and page-container)
  */
 
 // Get the main api along with any query passed
-// TODO: This feels like it should be in App.js ?
 const urlForApi = query =>
 	`https://api.github.com/repos/Automattic/_s/issues?${query}`;
 
 class App extends Component {
 	constructor() {
 		super();
+
+		this.handleSortByAuthor = this.handleSortByAuthor.bind(this);
 		//get initialstate
 		this.state = {
 			githubData: {},
+			sortAuthor: {},
 			requestFailed: false
 		};
 	}
 
+	handleSortByAuthor = sortAuthor => {
+		this.setState({
+			sortAuthor: sortAuthor
+		});
+	};
+
 	/**
 	 * Grabs the data from github here and sets up for use in Issue
 	 */
-
 	componentDidMount() {
 		// Lifecycle method: https://reactjs.org/docs/react-component.html
 
@@ -50,6 +56,7 @@ class App extends Component {
 			.then(
 				d => {
 					// set the state using the data from github api
+					// TODO: There is a lot of data here that isn't needed in this task, maybe look at loading just bits needed
 					this.setState({
 						githubData: d
 					});
@@ -64,19 +71,16 @@ class App extends Component {
 			);
 	}
 
-	updateApi(query) {
-		// This will be used for filters
-		// take a copy of the existing state
-		const githubData = { ...this.state.githubData };
-	}
-
 	render() {
 		return (
 			<div className="page-container">
 				<Header className="page-header" />
 
 				<main className="issues-table-container" role="main">
-					<IssueTableHead githubData={this.state.githubData} />
+					<IssueTableHead
+						githubData={this.state.githubData}
+						handleSortByAuthor={this.state.handleSortByAuthor}
+					/>
 					<IssuesTable githubData={this.state.githubData} />
 				</main>
 
