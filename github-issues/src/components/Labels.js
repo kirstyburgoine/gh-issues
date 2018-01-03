@@ -7,13 +7,17 @@ class Labels extends Component {
 		// this is the labels array only rather than the whole data set
 		// TODO: also needs key adding to remove warnings
 		const { labels } = this.props;
-		// console.log(details);
+		// console.log(labels);
 
 		const label = labels.map((item, i) => {
 			// const liStyle = 'backgroundColor: #' + item.color;
 
 			return (
-				<li style={{ backgroundColor: '#' + item.color }}>
+				<li
+					style={{
+						backgroundColor: item.color ? '#' + item.color : ''
+					}}
+				>
 					{item.name}
 				</li>
 			);
@@ -24,7 +28,7 @@ class Labels extends Component {
 }
 
 Labels.propTypes = {
-	arrayWithShape: PropTypes.arrayOf(
+	labels: PropTypes.arrayOf(
 		PropTypes.shape({
 			color: PropTypes.string.isRequired,
 			default: PropTypes.bool.isRequired,
