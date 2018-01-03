@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Labels extends Component {
 	// TODO: Map nested arrray
@@ -21,5 +22,17 @@ class Labels extends Component {
 		return <ul className="labels">{label}</ul>;
 	}
 }
+
+Labels.propTypes = {
+	arrayWithShape: PropTypes.arrayOf(
+		PropTypes.shape({
+			color: PropTypes.string.isRequired,
+			default: PropTypes.bool.isRequired,
+			id: PropTypes.number.isRequired,
+			name: PropTypes.string.isRequired,
+			url: PropTypes.string.isRequired
+		})
+	).isRequired
+};
 
 export default Labels;
