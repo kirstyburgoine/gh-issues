@@ -14,6 +14,7 @@ class Labels extends Component {
 
 			return (
 				<li
+					key={i}
 					style={{
 						backgroundColor: item.color ? '#' + item.color : ''
 					}}
