@@ -46,18 +46,20 @@ class Issue extends Component {
 					</div>
 				</div>
 				<div className="column-right">
-					<img
-						src={details.user.avatar_url}
-						alt={details.user.login}
-						height="20px"
-						width="20px"
-						className="avatar"
-					/>
+					<div className="avatar">
+						<img
+							src={details.user.avatar_url}
+							alt={details.user.login}
+							height="20px"
+							width="20px"
+							className="avatar-img"
+						/>
+					</div>
 
-					<span className="comments">
+					<div className="comments">
 						<CommentIcon />
 						<span className="text-small">{details.comments}</span>
-					</span>
+					</div>
 				</div>
 			</li>
 		);
