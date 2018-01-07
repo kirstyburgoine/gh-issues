@@ -13,12 +13,7 @@ $type-scale: (
 	0: 1rem,
 	1: 1.25rem,
 	2: 1.5rem,
-	3: 1.875rem,
-	4: 2.25rem,
-	5: 2.5rem,
-	6: 3.125rem,
-	7: 3.75rem,
-	8: 6.25rem
+	3: 1.875rem
 );
 // Easy REM calculator based on 16px base
 // : https://offroadcode.com/rem-calculator/
@@ -37,16 +32,11 @@ $base-line-height: 1.25 * $base-font-size;
 
 $line-heights: (
 	-2: $base-line-height,
-	-1: $base-line-height * 1.25,
+	-1: $base-line-height,
 	0: $base-line-height * 1.25,
 	1: $base-line-height * 1.25,
 	2: $base-line-height * 1.5,
-	3: $base-line-height * 1.5,
-	4: $base-line-height * 2.5,
-	5: $base-line-height * 2.75,
-	6: $base-line-height * 3.325,
-	7: $base-line-height * 4,
-	8: $base-line-height * 6.5
+	3: $base-line-height * 1.5
 );
 
 @mixin type-setting($level: 0) {
@@ -74,7 +64,7 @@ h6,
 
 h3,
 %h3 {
-	@include type-setting(1);
+	@include type-setting(2);
 }
 
 .issue-title {
@@ -82,11 +72,11 @@ h3,
 }
 
 .opened-by {
-	@include type-setting(-1);
+	@include type-setting(0);
 }
 
 .text-small {
 	// comment count on each row
-	@include type-setting(-1);
+	@include type-setting(0);
 	font-weight: $font-weight-semibold;
 }
