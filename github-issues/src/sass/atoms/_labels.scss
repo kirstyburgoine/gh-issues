@@ -1,0 +1,20 @@
+/**
+ * Default styles for progress labels
+ * -----------------------------------------------------------------------------------------
+ *
+ */
+
+.labels {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: inline;
+
+	> li {
+		@extend %text-small;
+		padding: 3px 4px; // custom amount of padding. so small no need to scale
+		margin: 0 $item-gutter / 2;
+		display: inline;
+		box-shadow: inset 0 -1px 0 rgba(27, 31, 35, 0.12);
+	}
+}

@@ -23,27 +23,15 @@
 
 		.issue-details {
 			width: 100%;
-
-			.labels {
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				display: inline;
-
-				> li {
-					padding: $item-gutter / 2;
-					margin: 0 $item-gutter / 2;
-					display: inline;
-				}
-			}
 		}
 	}
 
 	// -------------------------
 	// Items within column-left. could be nested but no need to be that specific.
 	.issue-status {
-		padding-top: $item-gutter;
+		padding-top: $item-gutter / 2;
 		padding-right: $gutter;
+		padding-left: $item-gutter;
 	}
 
 	.column-right {
