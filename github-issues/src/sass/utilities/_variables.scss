@@ -19,7 +19,8 @@ $white: #fff;
 $black: #000;
 $grey-light: #f6f8fa;
 $grey-medium: #e1e4e8;
-$grey-dark: #24292e;
+$grey-dark: #586069;
+$grey-darker: #24292e;
 
 $brand-base: #0366d6;
 
@@ -28,7 +29,8 @@ $container-background-color-alt: $grey-light;
 
 $border-color: $grey-medium;
 
-$body-font-color: $grey-dark;
+$body-font-color: $grey-darker;
+$supporting-text-color: $grey-dark;
 
 $link-color-default: $body-font-color;
 $link-color-hover: $brand-base;

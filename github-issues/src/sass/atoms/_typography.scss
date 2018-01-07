@@ -11,8 +11,8 @@ $type-scale: (
 	-2: 0.75rem,
 	-1: 0.875rem,
 	0: 1rem,
-	1: 1.25rem,
-	2: 1.5rem,
+	1: 1.15rem,
+	2: 1.35rem,
 	3: 1.875rem
 );
 // Easy REM calculator based on 16px base
@@ -73,9 +73,11 @@ h3,
 
 .opened-by {
 	@include type-setting(0);
+	color: $supporting-text-color;
 }
 
-.text-small {
+.text-small,
+%text-small {
 	// comment count on each row
 	@include type-setting(0);
 	font-weight: $font-weight-semibold;
