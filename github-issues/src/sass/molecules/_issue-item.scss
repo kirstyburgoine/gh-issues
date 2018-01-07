@@ -6,6 +6,7 @@
 .github-issue {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 	padding: $item-gutter;
 	border-bottom: solid 1px $border-color;
 
@@ -18,7 +19,7 @@
 	}
 
 	.column-left {
-		flex: 0 1 65%;
+		flex: 0 1 75%;
 		display: flex;
 
 		.issue-details {
@@ -26,24 +27,29 @@
 		}
 	}
 
+	.column-right {
+		flex: 0 1 17.5%;
+		min-width: em(120);
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
 	// -------------------------
-	// Items within column-left. could be nested but no need to be that specific.
+	// Items within column-left & column-right could be nested but no need to be that specific.
 	.issue-status {
 		padding-top: $item-gutter / 2;
 		padding-right: $gutter;
 		padding-left: $item-gutter;
 	}
 
-	.column-right {
-		flex: 0 1 35%;
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
+	.avatar,
+	.comments {
+		flex: 0 1 50%;
+		text-align: right;
+	}
 
-		// TODO: Change thes to proper columns to better control alignment with filters in table head
-		.avatar {
-			padding-right: $gutter * 2;
-		}
+	.comments {
 		.octicon-comment,
 		.text-small {
 			padding-right: $item-gutter;

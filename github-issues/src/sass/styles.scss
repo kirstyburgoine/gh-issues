@@ -14,6 +14,7 @@
 // -----------------------------------------------------
 @import 'utilities/variables';
 @import 'utilities/media-queries';
+@import 'utilities/em';
 
 @import 'base';
 
@@ -24,10 +25,12 @@
 @import 'atoms/typography';
 @import 'atoms/links';
 @import 'atoms/buttons';
+@import 'atoms/labels';
 
 // Molecules - Small collections of Atoms
 @import 'molecules/issue-item';
 @import 'molecules/table-head';
+@import 'molecules/filters';
 
 // Organisms - Collections of Molecules
 @import 'organisms/layout';

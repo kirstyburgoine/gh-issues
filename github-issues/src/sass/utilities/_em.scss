@@ -1,0 +1,16 @@
+/**
+ * em() sass function
+ * https://css-tricks.com/snippets/sass/px-to-em-functions/
+ *
+ * usage:
+ * h1 {
+ *	font-size: em(20);
+ * }
+ * -----------------------------------------------------------------------------------------
+ */
+
+$browser-context: 14; // Default - bit hacky as we have responsive type setting the default...
+
+@function em($pixels, $context: $browser-context) {
+	@return #{$pixels/$context}em;
+}

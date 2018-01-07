@@ -67,6 +67,12 @@ h3,
 	@include type-setting(2);
 }
 
+.table-results-count {
+	p {
+		@include type-setting(1);
+	}
+}
+
 .issue-title {
 	@extend %h3;
 }

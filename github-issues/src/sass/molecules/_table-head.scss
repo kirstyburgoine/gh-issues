@@ -1,5 +1,5 @@
 /**
- * Table head with filters
+ * Table head Layout
  * -----------------------------------------------------------------------------------------
  */
 
@@ -10,54 +10,51 @@
 	border-right: solid 1px $border-color;
 	border-left: solid 1px $border-color;
 	border-radius: 4px;
+	flex-flow: column wrap;
 
-	.table-results-count {
-		flex: 0 1 45%;
-		padding: $gutter;
+	@include min-screen( $screen-m ) {
+		flex-flow: row wrap;
 	}
 
-	// This applies to all the dropdowns
+	.table-results-count {
+		flex: 0 1 100%;
+		text-align: center;
+		padding: $gutter;
+		border-bottom: solid 1px $border-color;
+		box-sizing: border-box;
+
+		@include min-screen( $screen-m ) {
+			flex: 0 1 35%;
+			text-align: left;
+			border-bottom: 0;
+		}
+	}
+	// padding added to these outer containers instead of buttons and <p> so that font-sizes don't produce inconsistent padding amounts
 	.table-list-filters {
-		flex: 0 1 55%;
+		flex: 0 1 100%;
+		padding: $gutter;
+		box-sizing: border-box;
 
+		@include min-screen( $screen-m ) {
+			flex: 0 1 65%;
+		}
+
+		// not included in _filters.scss or _buttons.scss as this is specific to table head layout only!
 		.list-filters {
+			// the form html
 			display: flex;
-			justify-content: flex-end;
+			flex-flow: row wrap;
+			justify-content: center;
 
-			fieldset {
-				position: relative;
+			@include min-screen( $screen-m ) {
+				justify-content: flex-end;
 			}
+		}
 
-			ul {
-				// by default hide the UL until its clicked and then its behaviour is controlled by classes being added / removed.
-				// Important to note that for accessibility, display should not be used to show / hide menus as its stops keyboard tabbing
-				// through hidden menus. This is purely due to time constraints.
-				display: none;
-				position: absolute;
-				background-color: $body-background-color;
-				max-height: 50vh;
-				border: solid 1px $border-color;
-				overflow: auto;
-
-				li {
-					width: 300px;
-					border: solid 1px $border-color;
-					display: flex;
-					align-items: center;
-					padding: $gutter;
-
-					&:last-child {
-						border: none;
-					}
-
-					&:hover {
-						background-color: $container-background-color-alt;
-					}
-
-					a {
-						display: block;
-						padding-left: $gutter;
-					}
+		fieldset {
+			button {
+				&:last-child {
+					padding-right: 0;
 				}
 			}
 		}

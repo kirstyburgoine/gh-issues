@@ -434,6 +434,17 @@ table {
  * a. Colour Settings
  * b. Typography
  * c. Gutters / Containers / Margin / Padding settings;
+ * d. Default breakpoints
+ */
+/**
+ * em() sass function
+ * https://css-tricks.com/snippets/sass/px-to-em-functions/
+ *
+ * usage:
+ * h1 {
+ *	font-size: em(20);
+ * }
+ * -----------------------------------------------------------------------------------------
  */
 /**
  * All base styles after resets are applied that don't have a
@@ -441,15 +452,14 @@ table {
  * -----------------------------------------------------------------------------------------
  */
 html {
-  font-size: calc(12px + (14 - 12) * ((100vw - 300px) / (1680 - 300))); }
+  font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1680 - 300))); }
 
 body {
   color: #24292e;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 400;
   font-style: normal;
-  background-color: #fff;
-  font-size: 90%; }
+  background-color: #fff; }
 
 .displayblock {
   display: block !important; }
@@ -472,15 +482,21 @@ h6 {
 
 h3,
 .issue-title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
+  line-height: 1.875rem; }
+
+.table-results-count p {
+  font-size: 1.15rem;
   line-height: 1.5625rem; }
 
 .opened-by {
-  font-size: 0.875rem;
-  line-height: 1.5625rem; }
+  font-size: 1rem;
+  line-height: 1.5625rem;
+  color: #586069; }
 
-.text-small {
-  font-size: 0.875rem;
+.text-small,
+.labels > li {
+  font-size: 1rem;
   line-height: 1.5625rem;
   font-weight: 600; }
 
@@ -504,11 +520,13 @@ a {
  *
  */
 button {
-  padding: 1.25em; }
+  font-size: 1.15rem;
+  line-height: 1.5625rem; }
 
 .btn-link {
   border: 0;
-  background: transparent; }
+  background: transparent;
+  padding: 0 1.25em; }
 
 .select-menu-button:not([disabled]):after {
   display: inline-block;
@@ -523,12 +541,35 @@ button {
   border-left-color: transparent; }
 
 /**
+ * Default styles for progress labels
+ * -----------------------------------------------------------------------------------------
+ *
+ */
+.labels {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: block; }
+  @media only screen and (min-width: 768px) {
+    .labels {
+      display: inline; } }
+  .labels > li {
+    padding: 3px 4px;
+    margin: 0.625em 0.3125em 0 0;
+    display: inline-block;
+    box-shadow: inset 0 -1px 0 rgba(27, 31, 35, 0.12); }
+    @media only screen and (min-width: 768px) {
+      .labels > li {
+        margin: 0 0.3125em; } }
+
+/**
  * Each Row listing an issue
  * -----------------------------------------------------------------------------------------
  */
 .github-issue {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 0.625em;
   border-bottom: solid 1px #e1e4e8; }
   .github-issue:last-child {
@@ -536,37 +577,32 @@ button {
   .github-issue:hover {
     background-color: #f6f8fa; }
   .github-issue .column-left {
-    flex: 0 1 65%;
+    flex: 0 1 75%;
     display: flex; }
     .github-issue .column-left .issue-details {
       width: 100%; }
-      .github-issue .column-left .issue-details .labels {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: inline; }
-        .github-issue .column-left .issue-details .labels > li {
-          padding: 0.3125em;
-          margin: 0 0.3125em;
-          display: inline; }
-  .github-issue .issue-status {
-    padding-top: 0.625em;
-    padding-right: 1.25em; }
   .github-issue .column-right {
-    flex: 0 1 35%;
+    flex: 0 1 17.5%;
+    min-width: 8.57143em;
     display: flex;
     justify-content: flex-end;
     align-items: center; }
-    .github-issue .column-right .avatar {
-      padding-right: 2.5em; }
-    .github-issue .column-right .octicon-comment,
-    .github-issue .column-right .text-small {
-      padding-right: 0.625em; }
-    .github-issue .column-right .octicon-comment {
-      vertical-align: middle; }
+  .github-issue .issue-status {
+    padding-top: 0.3125em;
+    padding-right: 1.25em;
+    padding-left: 0.625em; }
+  .github-issue .avatar,
+  .github-issue .comments {
+    flex: 0 1 50%;
+    text-align: right; }
+  .github-issue .comments .octicon-comment,
+  .github-issue .comments .text-small {
+    padding-right: 0.625em; }
+  .github-issue .comments .octicon-comment {
+    vertical-align: middle; }
 
 /**
- * Table head with filters
+ * Table head Layout
  * -----------------------------------------------------------------------------------------
  */
 .table-head {
@@ -575,37 +611,67 @@ button {
   border-top: solid 1px #e1e4e8;
   border-right: solid 1px #e1e4e8;
   border-left: solid 1px #e1e4e8;
-  border-radius: 4px; }
+  border-radius: 4px;
+  flex-flow: column wrap; }
+  @media only screen and (min-width: 768px) {
+    .table-head {
+      flex-flow: row wrap; } }
   .table-head .table-results-count {
-    flex: 0 1 45%;
-    padding: 1.25em; }
+    flex: 0 1 100%;
+    text-align: center;
+    padding: 1.25em;
+    border-bottom: solid 1px #e1e4e8;
+    box-sizing: border-box; }
+    @media only screen and (min-width: 768px) {
+      .table-head .table-results-count {
+        flex: 0 1 35%;
+        text-align: left;
+        border-bottom: 0; } }
   .table-head .table-list-filters {
-    flex: 0 1 55%; }
+    flex: 0 1 100%;
+    padding: 1.25em;
+    box-sizing: border-box; }
+    @media only screen and (min-width: 768px) {
+      .table-head .table-list-filters {
+        flex: 0 1 65%; } }
     .table-head .table-list-filters .list-filters {
       display: flex;
-      justify-content: flex-end; }
-      .table-head .table-list-filters .list-filters fieldset {
-        position: relative; }
-      .table-head .table-list-filters .list-filters ul {
-        display: none;
-        position: absolute;
-        background-color: #fff;
-        max-height: 50vh;
-        border: solid 1px #e1e4e8;
-        overflow: auto; }
-        .table-head .table-list-filters .list-filters ul li {
-          width: 300px;
-          border: solid 1px #e1e4e8;
-          display: flex;
-          align-items: center;
-          padding: 1.25em; }
-          .table-head .table-list-filters .list-filters ul li:last-child {
-            border: none; }
-          .table-head .table-list-filters .list-filters ul li:hover {
-            background-color: #f6f8fa; }
-          .table-head .table-list-filters .list-filters ul li a {
-            display: block;
-            padding-left: 1.25em; }
+      flex-flow: row wrap;
+      justify-content: center; }
+      @media only screen and (min-width: 768px) {
+        .table-head .table-list-filters .list-filters {
+          justify-content: flex-end; } }
+    .table-head .table-list-filters fieldset button:last-child {
+      padding-right: 0; }
+
+/**
+ * Filter Dropdowns
+ * -----------------------------------------------------------------------------------------
+ * Initially used in table head but could be used elsewhere
+ */
+.list-filters fieldset {
+  position: relative; }
+
+.list-filters ul {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  max-height: 50vh;
+  border: solid 1px #e1e4e8;
+  overflow: auto; }
+  .list-filters ul li {
+    width: 300px;
+    border: solid 1px #e1e4e8;
+    display: flex;
+    align-items: center;
+    padding: 1.25em; }
+    .list-filters ul li:last-child {
+      border: none; }
+    .list-filters ul li:hover {
+      background-color: #f6f8fa; }
+    .list-filters ul li a {
+      display: block;
+      padding-left: 1.25em; }
 
 /**
  * Overall page layout settings

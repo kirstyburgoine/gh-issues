@@ -9,6 +9,7 @@
  * a. Colour Settings
  * b. Typography
  * c. Gutters / Containers / Margin / Padding settings;
+ * d. Default breakpoints
  */
 
 // -------------------------------------------------
@@ -68,3 +69,14 @@ $container-breakpoint: calc(
 	$container-width + $gutter
 ); // Control page behaviour at the point max-width kicks in + the amount of outer padding needed so that padding is not stripped too soon
 // and instead of it being at an arbitrary, device specific break point
+
+// -------------------------------------------------
+// d. Breakpoints
+// -------------------------------------------------
+// Note: These are general use.
+$screen-xs: 480px;
+$screen-s: 640px;
+$screen-m: 768px;
+$screen-ml: 992px;
+$screen-l: 1024px;
+$screen-xl: 1440px;

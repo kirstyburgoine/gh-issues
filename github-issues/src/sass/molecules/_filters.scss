@@ -1,0 +1,44 @@
+/**
+ * Filter Dropdowns
+ * -----------------------------------------------------------------------------------------
+ * Initially used in table head but could be used elsewhere
+ */
+
+.list-filters {
+	fieldset {
+		position: relative;
+	}
+
+	ul {
+		// by default hide the UL until its clicked and then its behaviour is controlled by classes being added / removed.
+		// Important to note that for accessibility, display should not be used to show / hide menus as its stops keyboard tabbing
+		// through hidden menus. This is purely due to time constraints.
+		display: none;
+		position: absolute;
+		background-color: $body-background-color;
+		max-height: 50vh;
+		border: solid 1px $border-color;
+		overflow: auto;
+
+		li {
+			width: 300px;
+			border: solid 1px $border-color;
+			display: flex;
+			align-items: center;
+			padding: $gutter;
+
+			&:last-child {
+				border: none;
+			}
+
+			&:hover {
+				background-color: $container-background-color-alt;
+			}
+
+			a {
+				display: block;
+				padding-left: $gutter;
+			}
+		}
+	}
+}
