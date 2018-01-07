@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-const { PropTypes } = React;
+import PropTypes from 'prop-types';
 
 class StatusIcon extends Component {
 	render() {
@@ -22,5 +22,9 @@ class StatusIcon extends Component {
 		);
 	}
 }
+
+StatusIcon.propTypes = {
+	status: PropTypes.string.isRequired
+};
 
 export default StatusIcon;

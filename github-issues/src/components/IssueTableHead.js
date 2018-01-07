@@ -7,6 +7,8 @@ import FilterMilestones from './FilterMilestones';
 import FilterAssignee from './FilterAssignee';
 import FilterSort from './FilterSort';
 
+// import PropTypes from 'prop-types'; - removed to remove warnings on console until can figure PropType for githuData
+
 /**
  * Form in the header that filters the results
  */
@@ -14,13 +16,22 @@ class IssueTableHead extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			authordisplay: false
+			authorName: 'johndoe',
+			authordisplay: false,
+			labelsdisplay: false
 		};
-		this.authorDropDown = this.authorDropDown.bind(this); // binds this in my function to the class so that it can be used in callback
+		this.authorSelect = this.authorSelect.bind(this);
+		this.authorDropDown = this.authorDropDown.bind(this);
 		this.labelsDropDown = this.labelsDropDown.bind(this);
 	}
 
-	// TODO: STill not happy with this way of showing dropdowns...
+	// See `./examples/AuthorResult/` for working example of passing function as props to children to affect state
+	// TODO: This is set too far down in the tree. Needs to be in App.js
+	authorSelect(authorName) {
+		this.setState({ authorName });
+	}
+
+	// TODO: Need this to toggle all buttons from one function
 	authorDropDown(event) {
 		event.preventDefault();
 		// console.log('this worked');
@@ -43,14 +54,14 @@ class IssueTableHead extends Component {
 
 	render() {
 		// set the state of display so we can control show / hide menus
-		// TODO: Change this so seperate state is not declared for each show hide / menu. toggels between them all instead
-		// to close any that are open before opening another
 		const authordisplay = this.state.authordisplay;
 		const labeldisplay = this.state.labelsdisplay;
+
 		// This is our data from the api called in App.js
-		// TODO: Probably don't want to pass all of this data through to the filters?
+		// TODO: Don't want to pass all of this data through to the filters?
 		const { githubData } = this.props;
 
+		// TODO: Move all logic and entire fieldset for each filter back into its own component
 		return (
 			<div className="table-head">
 				<TableResultsCount />
@@ -76,6 +87,7 @@ class IssueTableHead extends Component {
 									<FilterAuthor
 										key={key}
 										users={githubData[key]}
+										authorSelect={this.authorSelect}
 									/>
 								))}
 							</ul>
@@ -115,5 +127,12 @@ class IssueTableHead extends Component {
 		);
 	}
 }
+// Issue:
+// Warning: Failed prop type: Invalid prop `githubData` of type `object` supplied to `IssueTableHead`, expected an array.
+// Same problem as IssueTable.js & Issue.js - Need to find correct proptype for githubData const.
+
+// IssueTableHead.propTypes = {
+// 	githubData: PropTypes.arrayOf(PropTypes.object)
+// };
 
 export default IssueTableHead;

@@ -3,23 +3,24 @@ import TimeAgo from 'react-timeago';
 import StatusIcon from './StatusIcon';
 import Labels from './Labels';
 import CommentIcon from './CommentIcon';
+// import PropTypes from 'prop-types'; - removed to remove warnings on console until can figure PropType for githuData
 
 /**
  * Display Each Issues Data in an li
  */
 class Issue extends Component {
 	render() {
-		// details comes from issue component markup set up in IssuesTable.js
+		// details is all the githubdata coming from App.js as prop
 		const { details } = this.props;
 
-		var progressLabels = [details.labels];
-		//console.log(progressLabels);
+		// nested array of progress labels for each issue
+		const progressLabels = [details.labels];
+		// console.log(progressLabels);
+		const issueID = `issue_${details.number}`;
 
 		return (
-			<li
-				className="github-issue"
-				style={{ backgroundColor: '#' + details.labels.color }}
-			>
+			// li is used here instead of table row because that is what is used on github
+			<li className="github-issue" id={issueID}>
 				<div className="column-left">
 					<StatusIcon status={details.state} />
 
@@ -62,5 +63,23 @@ class Issue extends Component {
 		);
 	}
 }
+
+// Same problem as IssueTableHead.js & IssueTable.js - NEed to find correct proptype for details const.
+// Different attempt. This type using .shape()
+
+// Issue.propTypes = {
+// 	details: PropTypes.arrayOf(
+// 		PropTypes.shape({
+// 			state: PropTypes.string.isRequired,
+// 			html_url: PropTypes.string.isRequired,
+// 			title: PropTypes.string.isRequired,
+// 			labels: PropTypes.arrayOf(PropTypes.object),
+// 			number: PropTypes.number.isRequired,
+// 			created_at: PropTypes.instanceOf(Date),
+// 			user: PropTypes.arrayOf(PropTypes.object),
+// 			comments: PropTypes.number.isRequired
+// 		})
+// 	).isRequired
+// };
 
 export default Issue;

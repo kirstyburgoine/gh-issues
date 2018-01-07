@@ -4,12 +4,14 @@ import IssueTableHead from './components/IssueTableHead';
 import IssuesTable from './components/IssuesTable';
 import Footer from './components/Footer';
 
+// import AuthorResult from './examples/AuthorResult';
+
 /**
  * Setup Architecture for the App
- * TODO: See if better way to load in without needing two outer containers (root and page-container)
+ * Get data here and flow down through components using props
  */
 
-// Get the main api along with any query passed
+// The main api along with any query passed (query would come from each filter)
 const urlForApi = query =>
 	`https://api.github.com/repos/Automattic/_s/issues?${query}`;
 
@@ -17,20 +19,17 @@ class App extends Component {
 	constructor() {
 		super();
 
-		this.handleSortByAuthor = this.handleSortByAuthor.bind(this);
 		//get initialstate
 		this.state = {
 			githubData: {},
-			sortAuthor: {},
 			requestFailed: false
 		};
+		this.authorSelect = this.authorSelect.bind(this);
 	}
 
-	handleSortByAuthor = sortAuthor => {
-		this.setState({
-			sortAuthor: sortAuthor
-		});
-	};
+	authorSelect(author) {
+		this.setState({ authorName: true });
+	}
 
 	/**
 	 * Grabs the data from github here and sets up for use in Issue
@@ -39,9 +38,10 @@ class App extends Component {
 		// Lifecycle method: https://reactjs.org/docs/react-component.html
 
 		// Fetch the API data using native Fetch method
-		// TODO: Double check this is supported across browser
-		// this.props.query comes from drop down filters
-		fetch(urlForApi(this.props.query))
+		// TODO: Double check fetch is supported across browser
+		fetch(urlForApi())
+			// fetch(urlForApi(this.props.query))
+			// this.props.query would comes from drop down filters
 			.then(response => {
 				// Check the resposnse
 				if (!response.ok) {
@@ -56,7 +56,7 @@ class App extends Component {
 			.then(
 				d => {
 					// set the state using the data from github api
-					// TODO: There is a lot of data here that isn't needed in this task, maybe look at loading just bits needed
+					// TODO: There is a lot of data here that isn't needed in this task, change this to load in the data needed not the whole
 					this.setState({
 						githubData: d
 					});
@@ -72,15 +72,18 @@ class App extends Component {
 	}
 
 	render() {
+		// start with showing some messages so the user can see whats happening
+		if (this.state.requestFailed) return <p>Failed!</p>;
+		if (!this.state.githubData) return <p>Loading...</p>;
+
+		// When testing components in `./examples/`` can be called here
+
 		return (
 			<div className="page-container">
 				<Header className="page-header" />
 
 				<main className="issues-table-container" role="main">
-					<IssueTableHead
-						githubData={this.state.githubData}
-						handleSortByAuthor={this.state.handleSortByAuthor}
-					/>
+					<IssueTableHead githubData={this.state.githubData} />
 					<IssuesTable githubData={this.state.githubData} />
 				</main>
 
