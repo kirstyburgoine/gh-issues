@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Header from './components/Header';
+import Header from './Header';
 
-it('renders "Today\'s Issues"', () => {
-	const wrapper = shallow('<Header />');
+it('renders "Todays Issues"', () => {
+	const wrapper = shallow(<Header />);
 	const textHeader = <p>Todays Issues</p>;
 	expect(wrapper.contains(textHeader)).toEqual(true);
 });

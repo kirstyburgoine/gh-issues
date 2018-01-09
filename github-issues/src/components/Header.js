@@ -5,7 +5,7 @@ import React from 'react';
 const Header = () => {
 	return (
 		<header role="banner">
-			<p>Today's Issues</p>
+			<p>Todays Issues</p>
 		</header>
 	);
 };
