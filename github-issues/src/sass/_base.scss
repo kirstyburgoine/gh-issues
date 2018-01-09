@@ -5,13 +5,13 @@
  */
 
 html {
-	font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1680 - 300)));
+	font-size: calc(10px + (12 - 10) * ((100vw - 300px) / (1680 - 300)));
 }
 
 // To break this down in a few lines we have
 // 10px as the minimum font size
-// 14 as the largest, minus the smallest (10)
-// We times that by 100VW minus the smallest screen size in mind for the 12px size, 300px
+// 12 as the largest, minus the smallest (10)
+// We times that by 100VW minus the smallest screen size in mind for the 10px size, 300px
 // Finally divide that by the largest screen width (1680) defined for 16px minus the smallest screen size again.
 // So if you wanted the font-size to be 16px on a screen at 320px wide, and 22px on a screen 1600px wide the declaration would be:
 //
