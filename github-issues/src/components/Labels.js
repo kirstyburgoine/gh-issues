@@ -19,6 +19,7 @@ class Labels extends Component {
 			);
 		});
 
+		if (!this.labels) return null;
 		return <ul className="labels">{label}</ul>;
 	}
 }
