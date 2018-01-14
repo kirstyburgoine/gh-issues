@@ -18,7 +18,8 @@ class Labels extends Component {
 				</li>
 			);
 		});
-
+		// TODO: move this to check if exists before ceating the label const?
+		// Maybe move this check up to Issues.js instead so that the entire component only exists if there are labels?
 		if (!this.labels) return null;
 		return <ul className="labels">{label}</ul>;
 	}
