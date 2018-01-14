@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Example passing props from parent component to child and updating state.
+ * Example passing function as props from parent component to child and updating state.
  * Parent and child componts here purely to keep togther for easy reading.
  * If they were to be used in the project each component would be in its own file
  *
