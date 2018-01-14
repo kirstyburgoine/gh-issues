@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import IssueTableHead from './components/IssueTableHead';
+// import IssueTableHead from './components/IssueTableHead';
+import IssueTableHeadSimple from './components/IssueTableHeadSimple';
 import IssuesTable from './components/IssuesTable';
 import Footer from './components/Footer';
 
 // import AuthorResult from './examples/AuthorResult';
+// import AuthorSearchResult from './examples/AuthorSearchResult';
 
 /**
  * Setup Architecture for the App
@@ -76,14 +78,14 @@ class App extends Component {
 		if (this.state.requestFailed) return <p>Failed!</p>;
 		if (!this.state.githubData) return <p>Loading...</p>;
 
-		// When testing components in `./examples/`` can be called here
+		// When testing components in `./examples/` can be called here
 
 		return (
 			<div className="page-container">
 				<Header className="page-header" />
 
 				<main className="issues-table-container" role="main">
-					<IssueTableHead githubData={this.state.githubData} />
+					<IssueTableHeadSimple githubData={this.state.githubData} />
 					<IssuesTable githubData={this.state.githubData} />
 				</main>
 
