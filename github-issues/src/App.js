@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 // import IssueTableHead from './components/IssueTableHead';
-import IssueTableHeadSimple from './components/IssueTableHeadSimple';
+import IssueTableHead from './components/IssueTableHead';
 import IssuesTable from './components/IssuesTable';
 import Footer from './components/Footer';
 
@@ -23,7 +23,7 @@ class App extends Component {
 
 		//get initialstate
 		this.state = {
-			githubData: {},
+			githubData: [],
 			requestFailed: false
 		};
 		this.authorSelect = this.authorSelect.bind(this);
@@ -85,7 +85,7 @@ class App extends Component {
 				<Header className="page-header" />
 
 				<main className="issues-table-container" role="main">
-					<IssueTableHeadSimple githubData={this.state.githubData} />
+					<IssueTableHead githubData={this.state.githubData} />
 					<IssuesTable githubData={this.state.githubData} />
 				</main>
 
